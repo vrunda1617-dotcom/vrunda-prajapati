@@ -20,6 +20,11 @@
   padding: 0;
 }
 
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
 html {
   scroll-behavior: smooth;
   background-color: var(--color-dark-bg);
@@ -30,7 +35,6 @@ html {
 
 body {
   color: var(--color-text-light);
-  overflow-x: hidden;
 }
 
 /* Custom Scrollbar */
@@ -80,6 +84,10 @@ header.scrolled {
   color: var(--color-primary);
   text-decoration: none;
   letter-spacing: 1px;
+}
+
+.nav-toggle {
+  display: none;
 }
 
 .nav-links {
@@ -452,8 +460,11 @@ section {
 .marquee-container {
   overflow: hidden;
   width: 100vw;
-  margin-left: -6%;
   position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
   padding: 40px 0;
   cursor: grab;
   user-select: none;
@@ -577,7 +588,11 @@ section {
   flex-direction: column;
   gap: 20px;
   width: 100vw;
-  margin-left: -6%;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
   padding: 20px 0;
   overflow: hidden;
 }
@@ -1034,26 +1049,132 @@ a.contact-value:hover {
   header {
     padding: 0 4%;
   }
-  .nav-links {
-    display: flex;
-    flex-wrap: nowrap;
-    gap: 12px;
-    overflow-x: auto;
-    white-space: nowrap;
-    max-width: 60%;
-    -webkit-overflow-scrolling: touch;
-    padding: 5px 0;
+  
+  /* Hamburger toggle button styles */
+  .nav-toggle {
+    display: block;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1100;
   }
-  .nav-links::-webkit-scrollbar {
-    display: none;
+  .hamburger {
+    display: block;
+    position: relative;
+    width: 24px;
+    height: 2px;
+    background-color: var(--color-primary);
+    transition: var(--transition-smooth);
+  }
+  .hamburger::before,
+  .hamburger::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 24px;
+    height: 2px;
+    background-color: var(--color-primary);
+    transition: var(--transition-smooth);
+  }
+  .hamburger::before {
+    top: -8px;
+  }
+  .hamburger::after {
+    top: 8px;
+  }
+  
+  /* Hamburger open state animation */
+  header.nav-open .hamburger {
+    background-color: transparent;
+  }
+  header.nav-open .hamburger::before {
+    transform: rotate(45deg);
+    top: 0;
+  }
+  header.nav-open .hamburger::after {
+    transform: rotate(-45deg);
+    top: 0;
+  }
+
+  /* Navigation drawer overlay */
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 80%;
+    height: 100vh;
+    background-color: rgba(18, 18, 18, 0.98);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    z-index: 1050;
+    transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    border-left: 1px solid rgba(215, 45, 10, 0.1);
+    padding: 0;
+    max-width: none;
+    overflow-x: hidden;
+    white-space: normal;
+  }
+  .nav-links.active {
+    right: 0;
   }
   .nav-links li {
-    flex-shrink: 0;
+    flex-shrink: 1;
   }
   .nav-links a {
-    font-size: 0.7rem;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+  }
+
+  /* General Text & Section downscaling */
+  .about-title,
+  .strategy-title-block h2,
+  .influencer-title-block h2,
+  .feed-title-block h2 {
+    font-size: calc(1.4rem + 1.2vw);
+    line-height: 1.1;
+    margin-bottom: 12px;
+  }
+  .about-text,
+  .strategy-desc,
+  .influencer-desc,
+  .feed-desc {
+    font-size: 0.75rem;
+    line-height: 1.4;
+    max-width: 100%;
+    margin-bottom: 15px;
+  }
+
+  /* Downscale the showcase layout and gaps */
+  .showcase-grid-trio {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-top: 20px;
+  }
+  #influencer .showcase-card {
+    aspect-ratio: 9/16;
+  }
+
+  /* Downscale the Feed Design layout & images */
+  .instagram-feeds-row {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+  .instagram-grid-visual {
+    margin-bottom: 8px;
+    border-radius: 8px;
+  }
+  .instagram-brand-link {
+    font-size: 0.65rem;
     letter-spacing: 0px;
   }
+
+  /* Other mobile adjustments */
   .hero-title {
     font-size: calc(2.2rem + 4vw);
   }

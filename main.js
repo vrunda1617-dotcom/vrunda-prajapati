@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
   setupHeaderScroll();
+  setupMobileMenu();
   setupIntersectionObserver();
   setupNavigationHighlighting();
   setupInteractiveScrubber();
@@ -596,6 +597,28 @@ function initMarqueeRow(container, baseSpeed) {
           }
         }
       }
+    });
+  });
+}
+
+// 8. Mobile hamburger menu navigation toggle
+function setupMobileMenu() {
+  const navToggle = document.querySelector('.nav-toggle');
+  const header = document.querySelector('header');
+  const navLinksContainer = document.querySelector('.nav-links');
+  const navLinks = document.querySelectorAll('.nav-links a');
+
+  if (!navToggle || !navLinksContainer) return;
+
+  navToggle.addEventListener('click', () => {
+    header.classList.toggle('nav-open');
+    navLinksContainer.classList.toggle('active');
+  });
+
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      header.classList.remove('nav-open');
+      navLinksContainer.classList.remove('active');
     });
   });
 }
