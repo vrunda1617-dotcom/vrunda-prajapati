@@ -1045,9 +1045,26 @@ a.contact-value:hover {
 @media (max-width: 768px) {
   section {
     padding: 60px 4% 40px 4%;
+    min-height: auto;
+  }
+  #cover {
+    min-height: 100vh;
   }
   header {
     padding: 0 4%;
+  }
+  
+  .strategy-intro-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  .strategy-collage-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(2, 1fr);
+    aspect-ratio: 1/1;
+    width: 100%;
+    max-width: 450px;
+    margin: 0 auto;
   }
   
   /* Hamburger toggle button styles */
@@ -1165,6 +1182,14 @@ a.contact-value:hover {
     grid-template-columns: repeat(3, 1fr);
     gap: 8px;
   }
+  .instagram-feed-card {
+    min-width: 0;
+    width: 100%;
+  }
+  .showcase-grid-trio > .floating-wrapper {
+    min-width: 0;
+    width: 100%;
+  }
   .instagram-grid-visual {
     margin-bottom: 8px;
     border-radius: 8px;
@@ -1235,8 +1260,8 @@ a.contact-value:hover {
     line-height: 1.4;
   }
   .strategy-intro-grid {
-    grid-template-columns: 1fr 1.2fr;
-    gap: 10px;
+    grid-template-columns: 1fr;
+    gap: 20px;
   }
   .strategy-desc {
     font-size: 0.75rem;
