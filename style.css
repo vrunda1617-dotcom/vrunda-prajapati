@@ -970,79 +970,155 @@ a.contact-value:hover {
 /* Responsive CSS */
 @media (max-width: 992px) {
   .about-grid {
-    grid-template-columns: 1fr;
-    gap: 40px;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 4%;
   }
   .about-visual {
-    height: 400px;
+    height: auto;
+    aspect-ratio: 4/5;
+  }
+  .about-title {
+    font-size: calc(1.5rem + 1vw);
+    margin-bottom: 15px;
+  }
+  .about-text {
+    font-size: 0.85rem;
+    line-height: 1.5;
+    margin-bottom: 20px;
   }
   .about-content {
     min-height: auto;
   }
   .strategy-intro-grid {
-    grid-template-columns: 1fr;
-    gap: 40px;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 4%;
   }
   .strategy-title-block {
     min-height: auto;
   }
+  .strategy-title-block h2 {
+    font-size: calc(1.6rem + 1vw);
+  }
+  .strategy-desc {
+    font-size: 0.8rem;
+    line-height: 1.5;
+  }
+  .strategy-collage-grid {
+    grid-template-rows: repeat(2, 1fr);
+    aspect-ratio: 1/1;
+    gap: 10px;
+  }
+  .marquee-track .showcase-card {
+    width: 170px;
+  }
   .showcase-grid-trio {
-    grid-template-columns: 1fr;
-    gap: 30px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
   }
-  .showcase-card {
-    aspect-ratio: 16/9;
-  }
-  .influencer-grid {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-  .influencer-title-block {
-    min-height: auto;
-  }
-  .influencer-desc {
-    text-align: left;
-    align-self: flex-start;
-  }
-  .feed-stacked-container {
-    gap: 40px;
+  #influencer .showcase-card {
+    aspect-ratio: 9/16;
   }
   .instagram-feeds-row {
-    grid-template-columns: 1fr;
-    gap: 40px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+  }
+  .instagram-brand-link {
+    font-size: 0.8rem;
   }
 }
 
 @media (max-width: 768px) {
+  section {
+    padding: 60px 4% 40px 4%;
+  }
   header {
-    padding: 0 5%;
+    padding: 0 4%;
   }
   .nav-links {
-    display: none; /* simple burger menu can be toggled by JS later */
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 12px;
+    overflow-x: auto;
+    white-space: nowrap;
+    max-width: 60%;
+    -webkit-overflow-scrolling: touch;
+    padding: 5px 0;
+  }
+  .nav-links::-webkit-scrollbar {
+    display: none;
+  }
+  .nav-links li {
+    flex-shrink: 0;
+  }
+  .nav-links a {
+    font-size: 0.7rem;
+    letter-spacing: 0px;
+  }
+  .hero-title {
+    font-size: calc(2.2rem + 4vw);
+  }
+  .hero-subtitle {
+    font-size: calc(1.5rem + 4vw);
   }
   .hero-meta {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 15px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 10px;
+    padding-top: 20px;
+  }
+  .meta-item {
+    font-size: 0.7rem;
   }
   .meta-item.right {
-    text-align: left;
+    text-align: right;
   }
   .index-row {
-    font-size: 1.5rem;
+    font-size: calc(1.1rem + 1vw);
     padding: 15px 0;
   }
   .index-number {
     margin-right: 15px;
-    font-size: 1.2rem;
+    font-size: 1rem;
+  }
+  .photo-strip-item {
+    width: 160px;
+    height: 120px;
+  }
+  .contact-header {
+    font-size: calc(2rem + 1.5vw);
+    margin-bottom: 30px;
   }
   .contact-row {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-    padding: 20px 0;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+  }
+  .contact-label {
+    font-size: 0.75rem;
   }
   .contact-value {
-    text-align: left;
+    font-size: 0.85rem;
+    text-align: right;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .about-text {
+    font-size: 0.75rem;
+    line-height: 1.4;
+  }
+  .strategy-intro-grid {
+    grid-template-columns: 1fr 1.2fr;
+    gap: 10px;
+  }
+  .strategy-desc {
+    font-size: 0.75rem;
+    line-height: 1.4;
   }
 }
