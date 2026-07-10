@@ -716,11 +716,10 @@ section {
 }
 
 /* Feed & Instagram Section */
-.feed-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 8%;
-  align-items: center;
+.feed-stacked-container {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
   max-width: 1200px;
   margin: 0 auto;
   width: 100%;
@@ -729,8 +728,8 @@ section {
 .feed-title-block {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  min-height: 420px;
+  justify-content: flex-start;
+  min-height: auto;
 }
 
 .feed-title-block h2 {
@@ -749,15 +748,15 @@ section {
   font-size: 0.95rem;
   line-height: 1.6;
   color: rgba(18, 18, 18, 0.85);
-  max-width: 480px;
-  align-self: flex-end;
-  text-align: right;
+  max-width: 600px;
+  text-align: left;
+  align-self: flex-start;
 }
 
 .instagram-showcase-container {
   max-width: 1200px;
   width: 100%;
-  margin: 40px auto 0 auto;
+  margin: 0 auto;
 }
 
 .instagram-feeds-row {
@@ -777,7 +776,7 @@ section {
   overflow: hidden;
   box-shadow: 0 15px 35px rgba(0,0,0,0.15);
   border: 1px solid rgba(18, 18, 18, 0.1);
-  aspect-ratio: 1/1;
+  aspect-ratio: 9/16;
   width: 100%;
   margin-bottom: 20px;
   transition: var(--transition-smooth);
@@ -1005,16 +1004,8 @@ a.contact-value:hover {
     text-align: left;
     align-self: flex-start;
   }
-  .feed-grid {
-    grid-template-columns: 1fr;
+  .feed-stacked-container {
     gap: 40px;
-  }
-  .feed-title-block {
-    min-height: auto;
-  }
-  .feed-desc {
-    text-align: left;
-    align-self: flex-start;
   }
   .instagram-feeds-row {
     grid-template-columns: 1fr;
